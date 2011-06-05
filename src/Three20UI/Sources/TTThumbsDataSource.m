@@ -32,7 +32,7 @@
 #import "Three20Core/TTGlobalCoreLocale.h"
 #import "Three20Core/TTCorePreprocessorMacros.h"
 
-static CGFloat kThumbSize = 75;
+static CGFloat kThumbWidth = 75;
 static CGFloat kThumbSpacing = 4;
 
 
@@ -80,7 +80,7 @@ static CGFloat kThumbSpacing = 4;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSInteger)columnCountForView:(UIView *)view {
   CGFloat width = view.bounds.size.width;
-  return floorf((width - kThumbSpacing*2) / (kThumbSize+kThumbSpacing) + 0.1);
+  return floorf((width - kThumbSpacing*2) / (kThumbWidth+kThumbSpacing) + 0.1);
 }
 
 

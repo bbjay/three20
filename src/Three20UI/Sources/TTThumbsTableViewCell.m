@@ -27,7 +27,8 @@
 #import "Three20Core/TTCorePreprocessorMacros.h"
 
 static const CGFloat kSpacing = 4;
-static const CGFloat kDefaultThumbSize = 75;
+static const CGFloat kDefaultThumbWidth = 75;
+static const CGFloat kDefaultThumbHeight = 75;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,7 +37,8 @@ static const CGFloat kDefaultThumbSize = 75;
 @implementation TTThumbsTableViewCell
 
 @synthesize photo       = _photo;
-@synthesize thumbSize   = _thumbSize;
+@synthesize thumbWidth   = _thumbWidth;
+@synthesize thumbHeight   = _thumbHeight;
 @synthesize thumbOrigin = _thumbOrigin;
 @synthesize columnCount = _columnCount;
 @synthesize delegate    = _delegate;
@@ -44,9 +46,10 @@ static const CGFloat kDefaultThumbSize = 75;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)identifier {
-  if (self = [super initWithStyle:style reuseIdentifier:identifier]) {
+  if ((self = [super initWithStyle:style reuseIdentifier:identifier])) {
     _thumbViews = [[NSMutableArray alloc] init];
-    _thumbSize = kDefaultThumbSize;
+    _thumbWidth = kDefaultThumbWidth;
+    _thumbHeight = kDefaultThumbHeight;
     _thumbOrigin = CGPointMake(kSpacing, 0);
 
     self.accessoryType = UITableViewCellAccessoryNone;
@@ -99,11 +102,11 @@ static const CGFloat kDefaultThumbSize = 75;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)layoutThumbViews {
   CGRect thumbFrame = CGRectMake(self.thumbOrigin.x, self.thumbOrigin.y,
-                                 self.thumbSize, self.thumbSize);
+                                 self.thumbWidth, self.thumbHeight);
 
   for (TTThumbView* thumbView in _thumbViews) {
     thumbView.frame = thumbFrame;
-    thumbFrame.origin.x += kSpacing + self.thumbSize;
+    thumbFrame.origin.x += kSpacing + self.thumbWidth;
   }
 }
 
@@ -146,9 +149,15 @@ static const CGFloat kDefaultThumbSize = 75;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setThumbSize:(CGFloat)thumbSize {
-  _thumbSize = thumbSize;
+- (void)setThumbWidth:(CGFloat)thumbWidth {
+  _thumbWidth = thumbWidth;
   [self setNeedsLayout];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setThumbHeight:(CGFloat)thumbHeight {
+    _thumbHeight = thumbHeight;
+    [self setNeedsLayout];
 }
 
 
