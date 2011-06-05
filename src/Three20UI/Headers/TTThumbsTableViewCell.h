@@ -26,7 +26,8 @@
 
   NSMutableArray* _thumbViews;
 
-  CGFloat         _thumbSize;
+  CGFloat         _thumbWidth;
+  CGFloat         _thumbHeight;
   CGPoint         _thumbOrigin;
   NSInteger       _columnCount;
 
@@ -34,7 +35,8 @@
 }
 
 @property (nonatomic, retain) id<TTPhoto> photo;
-@property (nonatomic)         CGFloat     thumbSize;
+@property (nonatomic)         CGFloat     thumbWidth;
+@property (nonatomic)         CGFloat     thumbHeight;
 @property (nonatomic)         CGPoint     thumbOrigin;
 @property (nonatomic)         NSInteger   columnCount;
 
