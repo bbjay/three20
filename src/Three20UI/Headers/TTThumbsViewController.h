@@ -33,6 +33,7 @@
 
 - (id)initWithDelegate:(id<TTThumbsViewControllerDelegate>)delegate;
 - (id)initWithQuery:(NSDictionary*)query;
+- (id)initWithThumbnailRowHeight:(CGFloat) thumbnailRowHeight;
 
 - (TTPhotoViewController*)createPhotoViewController;
 - (id<TTTableViewDataSource>)createDataSource;

@@ -101,6 +101,15 @@ static CGFloat kThumbnailRowHeight = 79;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithThumbnailRowHeight:(CGFloat)thumbnailRowHeight {
+    if ((self = [self initWithNibName:nil bundle:nil])) {
+    }
+    kThumbnailRowHeight = thumbnailRowHeight;
+    return self;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)dealloc {
   [_photoSource.delegates removeObject:self];
   TT_RELEASE_SAFELY(_photoSource);
