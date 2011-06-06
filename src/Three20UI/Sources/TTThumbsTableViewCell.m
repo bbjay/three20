@@ -49,7 +49,7 @@ static const CGFloat kDefaultThumbHeight = 75;
   if ((self = [super initWithStyle:style reuseIdentifier:identifier])) {
     _thumbViews = [[NSMutableArray alloc] init];
     _thumbWidth = kDefaultThumbWidth;
-    _thumbHeight = kDefaultThumbHeight;
+    _thumbHeight = 112;
     _thumbOrigin = CGPointMake(kSpacing, 0);
 
     self.accessoryType = UITableViewCellAccessoryNone;
@@ -146,19 +146,6 @@ static const CGFloat kDefaultThumbHeight = 75;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Public
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setThumbWidth:(CGFloat)thumbWidth {
-  _thumbWidth = thumbWidth;
-  [self setNeedsLayout];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setThumbHeight:(CGFloat)thumbHeight {
-    _thumbHeight = thumbHeight;
-    [self setNeedsLayout];
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
