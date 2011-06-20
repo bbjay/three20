@@ -31,8 +31,8 @@
 - (id)initWithFrame:(CGRect)frame {
   if ((self = [super initWithFrame:frame])) {
     self.backgroundColor = TTSTYLEVAR(thumbnailBackgroundColor);
-    self.clipsToBounds = YES;
-
+    self.clipsToBounds = NO;
+	self.backgroundColor = [UIColor blackColor];
     [self setStylesWithSelector:@"thumbView:"];
   }
 

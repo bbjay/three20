@@ -81,6 +81,9 @@ static const CGFloat kDefaultThumbHeight = 75;
   if (photo) {
     thumbView.thumbURL = [photo URLForVersion:TTPhotoVersionThumbnail];
     thumbView.hidden = NO;
+    UILabel* label = (UILabel*)[thumbView viewWithTag:1337];
+    label.text = [photo caption];
+    [label.superview bringSubviewToFront:label];
 
   } else {
     thumbView.thumbURL = nil;
@@ -171,6 +174,14 @@ static const CGFloat kDefaultThumbHeight = 75;
                  forControlEvents:UIControlEventTouchUpInside];
       [self.contentView addSubview:thumbView];
       [_thumbViews addObject:thumbView];
+		UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 75, 112)];
+		titleLabel.tag = 1337;
+		[titleLabel setBackgroundColor:[UIColor clearColor]];
+		[titleLabel setTextAlignment:UITextAlignmentCenter];
+		titleLabel.textColor = [UIColor whiteColor];
+		titleLabel.font = [UIFont boldSystemFontOfSize:13];
+		[thumbView addSubview:titleLabel];
+		[titleLabel release];
       if (_photo) {
         [self assignPhotoAtIndex:_photo.index+i toView:thumbView];
       }
