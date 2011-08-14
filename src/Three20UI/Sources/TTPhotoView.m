@@ -280,9 +280,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)loadPreview:(BOOL)fromNetwork {
   if (![self loadVersion:TTPhotoVersionLarge fromNetwork:NO]) {
-    // original code commented out on line below. Modified code two lines below: use TTPhotoVersionLarge to load from network, don't display small image as preview
-    //if (![self loadVersion:TTPhotoVersionSmall fromNetwork:NO]) {
-      if (![self loadVersion:TTPhotoVersionLarge fromNetwork:NO]) {  
+    if (![self loadVersion:TTPhotoVersionSmall fromNetwork:NO]) {
       if (![self loadVersion:TTPhotoVersionThumbnail fromNetwork:fromNetwork]) {
         return NO;
       }
