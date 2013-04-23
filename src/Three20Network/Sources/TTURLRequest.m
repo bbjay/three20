@@ -190,9 +190,9 @@ const NSTimeInterval TTURLRequestUseDefaultTimeout = -1.0;
   [body appendData:[[NSString
                       stringWithFormat:@"Content-Length: %d\r\n", data.length]
                      dataUsingEncoding:_charsetForMultipart]];
-  [body appendData:[[NSString
-                      stringWithString:@"Content-Type: image/jpeg\r\n\r\n"]
-                     dataUsingEncoding:_charsetForMultipart]];
+  
+  [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:_charsetForMultipart]];
+  
   [body appendData:data];
 		[body appendData:[endLine dataUsingEncoding:NSUTF8StringEncoding]];
 }
