@@ -313,7 +313,7 @@ const NSTimeInterval TTURLRequestUseDefaultTimeout = -1.0;
     if (_multiPartForm) {
       return [NSString stringWithFormat:@"multipart/form-data; boundary=%@", kStringBoundary];      
     } else {
-      return [NSString stringWithFormat:@"application/x-www-form-urlencoded", kStringBoundary];            
+      return [NSString stringWithFormat:@"application/x-www-form-urlencoded"];
     }
     
   } else {
